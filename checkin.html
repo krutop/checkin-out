@@ -46,7 +46,7 @@
     <div class="max-w-md mx-auto bg-white p-8 m-2 rounded-lg shadow-md">
         <!-- ส่วนนี้แสดงข้อความต้อนรับและชื่อผู้ใช้ -->
         <div class="p-2">
-            <span>👋🏻 สวัสดี </span>
+            <span>👋🏻 สวัสดีครับ </span>
             <input type="text" id="displayName" name="displayName">
         </div>
         <!-- กล่องแสดงวันที่และเวลา -->
@@ -466,9 +466,9 @@
     // ฟังก์ชันสำหรับส่งข้อความ Flex Message ผ่าน LIFF
     async function sendFlexMessage() {
         let jobColor = '';
-        if (jobInput.value === 'เข้างาน') {
+        if (jobInput.value === 'ลงเวลามา') {
             jobColor = '#0D9608FF'; // Green color
-        } else if (jobInput.value === 'ออกงาน') {
+        } else if (jobInput.value === 'ลงเวลากลับ') {
             jobColor = '#EF2F14FF'; // Red color
         } else {
             jobColor = '#000000FF'; // Default color if neither "เข้างาน" nor "ออกงาน"
