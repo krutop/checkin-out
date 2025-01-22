@@ -127,7 +127,7 @@
                             </div>
                             <div class="col-span-full">
                                 <label for="filterEmployeeId"
-                                    class="block text-sm font-medium leading-6 text-slate-900">รหัสพนักงาน</label>
+                                    class="block text-sm font-medium leading-6 text-slate-900">เลขที่ตำแหน่ง</label>
                                 <div class="mt-2">
                                     <input type="text" id="filterEmployeeId" autocomplete="off"
                                         class="block w-full rounded-md border-0 p-1.5 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
@@ -141,35 +141,35 @@
                                     <div class="mt-3 space-y-6">
                                         <div class="relative flex gap-x-3">
                                             <div class="flex h-6 items-center">
-                                                <input id="filterIn" type="checkbox" value="เข้างาน"
+                                                <input id="filterIn" type="checkbox" value="ลงเวลามา"
                                                     class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
                                                     checked />
                                             </div>
                                             <div class="text-sm leading-6">
                                                 <label for="filterIn"
-                                                    class="font-medium text-slate-900">เข้างาน</label>
+                                                    class="font-medium text-slate-900">ลงเวลามา</label>
                                             </div>
                                         </div>
                                         <div class="relative flex gap-x-3">
                                             <div class="flex h-6 items-center">
-                                                <input id="filterDuring" type="checkbox" value="ระหว่างวัน"
+                                                <input id="filterDuring" type="checkbox" value="ไปราชการ"
                                                     class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
                                                     checked />
                                             </div>
                                             <div class="text-sm leading-6">
                                                 <label for="filterDuring"
-                                                    class="font-medium text-slate-900">ระหว่างวัน</label>
+                                                    class="font-medium text-slate-900">ไปราชการ</label>
                                             </div>
                                         </div>
                                         <div class="relative flex gap-x-3">
                                             <div class="flex h-6 items-center">
-                                                <input id="filterOut" type="checkbox" value="ออกงาน"
+                                                <input id="filterOut" type="checkbox" value="ลงเวลากลับ"
                                                     class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
                                                     checked />
                                             </div>
                                             <div class="text-sm leading-6">
                                                 <label for="filterOut"
-                                                    class="font-medium text-slate-900">ออกงาน</label>
+                                                    class="font-medium text-slate-900">ลงเวลากลับ</label>
                                             </div>
                                         </div>
                                     </div>
@@ -273,7 +273,7 @@
                                     <tr class="border">
                                         <th class="w-20 px-4 py-2">รูปภาพ</th>
                                         <th class="w-40 px-4 py-2">ชื่อ</th>
-                                        <th class="w-20 px-4 py-2">รหัสพนักงาน</th>
+                                        <th class="w-20 px-4 py-2">เลขที่</th>
                                         <th class="w-40 px-4 py-2">บันทึก</th>
                                         <th class="w-20 px-4 py-2">หมายเหตุ</th>
                                         <th class="w-40 px-4 py-2">วันที่</th>
@@ -314,7 +314,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
 
-        const WEB_APP_URL = 'XXXXXXXXXXXXXXXXXXXXXXX'; 
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyJvu9X44AeNJT4ewBRBj6SIWFzC_Vy7pBims1Cqj4MqoqDw14WPWfCcJcDmAfNmIfeMQ/exec'; 
 
         let currentPage = 1;
         let totalPages = 1;
@@ -332,9 +332,9 @@
         }
 
         function getStatusClass(status) {
-            if (status === "เข้างาน") return "text-green";
-            if (status === "ออกงาน") return "text-red";
-            if (status === "ระหว่างวัน") return "text-yellow";
+            if (status === "ลงเวลามา") return "text-green";
+            if (status === "ลงเวลากลับ") return "text-red";
+            if (status === "ไปราชการ") return "text-yellow";
             return "";
         }
 
@@ -366,9 +366,9 @@
                 const formattedDateTime = formatDateTime(item[0]);
                 const nameMatch = item[2].toLowerCase().includes(nameFilter);
                 const employeeIdMatch = item[3].toLowerCase().includes(employeeIdFilter);
-                const inMatch = inFilter && item[4] === "เข้างาน";
-                const duringMatch = duringFilter && item[4] === "ระหว่างวัน";
-                const outMatch = outFilter && item[4] === "ออกงาน";
+                const inMatch = inFilter && item[4] === "ลงเวลามา";
+                const duringMatch = duringFilter && item[4] === "ไปราชการ";
+                const outMatch = outFilter && item[4] === "ลงเวลากลับ";
                 const statusMatch = inMatch || duringMatch || outMatch;
 
                 const dateMatch =
