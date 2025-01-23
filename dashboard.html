@@ -339,9 +339,9 @@
         }
 
         function getStatusClass(status) {
-            if (status === "เข้างาน") return "text-green";
+            if (status === "ลงเวลามา") return "text-green";
             if (status === "ลงเวลากลับ") return "text-red";
-            if (status === "ระหว่างวัน") return "text-yellow";
+            if (status === "ไปราชการ") return "text-yellow";
             return "";
         }
 
@@ -417,8 +417,8 @@
                 const nameMatch = item[2]?.toLowerCase().includes(nameFilter);
                 const employeeIdMatch = item[3]?.toString().includes(employeeIdFilter);
 
-                const inMatch = inFilter && item[4] === "เข้างาน";
-                const duringMatch = duringFilter && item[4] === "ระหว่างวัน";
+                const inMatch = inFilter && item[4] === "ลงเวลามา";
+                const duringMatch = duringFilter && item[4] === "ไปราชการ";
                 const outMatch = outFilter && item[4] === "ลงเวลากลับ";
                 const statusMatch = inMatch || duringMatch || outMatch;
 
